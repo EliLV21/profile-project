@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import NavBar from '../../shared/nav/nav';
 import { useUserContext } from '../../shared/context';
 import Marquee from '@/components/ui/marquee';
 
