@@ -1,9 +1,9 @@
 'use client';
 import { Suspense, useState } from 'react';
 import NavBar from './components/shared/nav/nav';
-import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { HomePage } from './components/pages/home/home';
+import { HomePage } from './components/pages/home/page';
 import BoardPage from './components/pages/board/page';
 import { UserNameContext } from './components/shared/context';
 
