@@ -1,8 +1,8 @@
 'use client';
-import { Board, BoardAction } from '@/app/types/types';
+import { Board, BoardAction, Task, TaskMap } from '@/app/types/types';
 import { dataTable } from '@/data';
 import supabase from '@/supabaseClient';
-import React, { createContext, useReducer, useEffect, useState, PropsWithChildren } from 'react';
+import React, { createContext, useReducer, useEffect, useState, PropsWithChildren, useContext } from 'react';
 
 const initialBoard: Board = {
   columns: dataTable,
@@ -28,21 +28,19 @@ export const BoardProvider = ({ children }: PropsWithChildren) => {
     setLoading(true);
     const { data } = await supabase.from('demo-app').select('*');
     if (data) {
-      const groupedData = data.reduce((acc: { [x: string]: any[] }, item: { [x: string]: any; type_column: any }) => {
-        const { type_column, ...rest } = item;
+      const groupedData = data.reduce((acc: TaskMap, item: Task) => {
+        const { type_column } = item;
         if (!acc[type_column]) {
           acc[type_column] = [];
         }
-        acc[type_column].push(rest);
+        acc[type_column].push(item);
         return acc;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      }, {} as Record<string, any[]>);
+      }, {} as Record<string, Task[]>);
 
       const columns = Object.keys(groupedData).reduce((acc, key) => {
         acc[key] = groupedData[key];
         return acc;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      }, {} as Record<string, any[]>);
+      }, {} as Record<string, Task[]>);
 
       const ordered = Object.keys(columns);
 
@@ -56,9 +54,7 @@ export const BoardProvider = ({ children }: PropsWithChildren) => {
   return <BoardContext.Provider value={{ boardState, dispatch }}>{children}</BoardContext.Provider>;
 };
 
-export const useBoard = () => {
-  return React.useContext(BoardContext);
-};
+export const useBoard = () => useContext(BoardContext);
 
 const boardReducer = (state: Board, action: BoardAction): Board => {
   switch (action.type) {
