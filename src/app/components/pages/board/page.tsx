@@ -2,7 +2,6 @@
 import React, { useCallback } from 'react';
 import { useBoard } from '@/context/board-context/BoardContext';
 import { Column } from '../../shared/column/column';
-import NavBar from '../../shared/nav/nav';
 import { DragDropContext, Droppable, DropResult, DraggableLocation } from 'react-beautiful-dnd'; // Import the necessary types
 
 const BoardPage: React.FC = () => {
@@ -36,7 +35,6 @@ const BoardPage: React.FC = () => {
   return (
     <>
       <div className="container p-8">
-        <NavBar />
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="board" direction="horizontal" isDropDisabled={false} type="COLUMN">
             {provided => (
