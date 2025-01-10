@@ -1,6 +1,6 @@
 import { Draggable, DraggableProvided } from 'react-beautiful-dnd';
 import { CardList } from '../tasks/card-list';
-import { Task } from '@/types/types';
+import { Task } from '@/app/types/types';
 
 interface ColumnProps {
   listTitle: string;

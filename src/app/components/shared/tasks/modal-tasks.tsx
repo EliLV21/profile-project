@@ -24,7 +24,7 @@ import { addTaskSchema } from '@/schema';
 import { ChartCandlestick, PlusIcon } from 'lucide-react';
 import { DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import supabase from '@/supabaseClient';
-import { Task } from '@/types/types';
+import { Task } from '@/app/types/types';
 import { DialogOverlay } from '@radix-ui/react-dialog';
 
 export const TasksModal = ({

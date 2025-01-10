@@ -1,7 +1,7 @@
 import { DraggableProvided } from 'react-beautiful-dnd';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Task } from '@/types/types';
+import { Task } from '@/app/types/types';
 import { useBoard } from '@/context/board-context/BoardContext';
 import { cn } from '@/lib/utils';
 import React from 'react';
