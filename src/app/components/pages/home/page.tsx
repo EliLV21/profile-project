@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useUserContext } from '../../shared/context';
 import Marquee from '@/components/ui/marquee';
 
-export const HomePage = () => {
+const HomePage = () => {
   const logos = [
     {
       name: 'Microsoft',
@@ -79,3 +79,5 @@ export const HomePage = () => {
     </>
   );
 };
+
+export default HomePage;
