@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import HomePage from './components/pages/home/home';
 import BoardPage from './components/pages/board/page';
 import { UserNameContext } from './components/shared/context';
-import { NotesPage } from './components/pages/notes/page';
+import NotesPage from './components/pages/notes/page';
 
 export interface DefectValue {
   name: string;
