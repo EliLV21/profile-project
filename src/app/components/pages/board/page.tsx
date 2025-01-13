@@ -7,6 +7,7 @@ import { DragDropContext, Droppable, DropResult, DraggableLocation } from 'react
 const BoardPage: React.FC = () => {
   const boardContext = useBoard();
   if (!boardContext) {
+    console.log(boardContext);
     return <div>Error: Board context is not available</div>;
   }
   const { boardState, dispatch } = boardContext;
