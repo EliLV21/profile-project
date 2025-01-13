@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useUserContext } from '../../shared/context';
 import Marquee from '@/components/ui/marquee';
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   const logos = [
     {
       name: 'Microsoft',
@@ -30,16 +30,16 @@ const HomePage = () => {
     },
   ];
 
-  const user = useUserContext();
+  const { name } = useUserContext();
 
   return (
     <>
       <div className="container p-8 relative flex items-center justify-center gap-4 overflow-hidden rounded-lg border bg-background px-20 md:shadow-xl">
         <div className="w-full h-[100px]">
-          {user ? (
+          {name ? (
             <div>
               <h1 className="text-4xl text-center text-primary-500">Welcome</h1>
-              <p>{user.name}</p>
+              <p>Hello, {name}</p>
             </div>
           ) : (
             <p>Please log in</p>
