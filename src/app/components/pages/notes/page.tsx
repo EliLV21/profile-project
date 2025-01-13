@@ -1,6 +1,6 @@
 import { AccordionList } from '../../shared/accordion/accordion-list';
 
-export const NotesPage = () => {
+const NotesPage: React.FC = () => {
   return (
     <>
       <div className="container p-8">
@@ -9,3 +9,5 @@ export const NotesPage = () => {
     </>
   );
 };
+
+export default NotesPage;
