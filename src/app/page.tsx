@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import HomePage from './components/pages/home/home';
 import BoardPage from './components/pages/board/page';
 import { UserNameContext } from './components/shared/context';
+import { NotesPage } from './components/pages/notes/page';
 
 export interface DefectValue {
   name: string;
@@ -38,8 +39,8 @@ export default function Home() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/board" element={<BoardPage />} />
-                {/* <Route path="/carousel" element={<CarouselPage />} />
-                    <Route path="/notes" element={<NotesPage />} /> */}
+                {/* <Route path="/carousel" element={<CarouselPage />} />*/}
+                <Route path="/notes" element={<NotesPage />} />
               </Routes>
             </Suspense>
           </Router>

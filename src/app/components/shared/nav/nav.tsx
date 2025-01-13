@@ -19,12 +19,12 @@ const NavBar = () => {
             <Link className="nav-link" to="/carousel">
               Carousel
             </Link>
-          </li>
+  </li>*/}
           <li className="nav-item ml-[1.25rem]">
             <Link className="nav-link" to="/notes">
               Notes
             </Link>
-          </li> */}
+          </li>
         </ul>
       </nav>
       <div className="flex justify-center items-center">{/* <Login /> */}</div>
