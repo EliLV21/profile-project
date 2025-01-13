@@ -1,8 +1,8 @@
 'use client';
-import { Board, BoardAction, Task, TaskMap } from '@/app/types/types';
 import { dataTable } from '@/data';
 import supabase from '@/supabaseClient';
-import React, { createContext, useReducer, useEffect, useState, PropsWithChildren, useContext } from 'react';
+import { Board, BoardAction } from '@/types/types';
+import React, { createContext, useReducer, useEffect, useState, PropsWithChildren } from 'react';
 
 const initialBoard: Board = {
   columns: dataTable,
@@ -27,20 +27,23 @@ export const BoardProvider = ({ children }: PropsWithChildren) => {
   const loadBoard = async () => {
     setLoading(true);
     const { data } = await supabase.from('demo-app').select('*');
+    console.log(data);
     if (data) {
-      const groupedData = data.reduce((acc: TaskMap, item: Task) => {
-        const { type_column } = item;
+      const groupedData = data.reduce((acc, item) => {
+        const { type_column, ...rest } = item;
         if (!acc[type_column]) {
           acc[type_column] = [];
         }
-        acc[type_column].push(item);
+        acc[type_column].push(rest);
         return acc;
-      }, {} as Record<string, Task[]>);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      }, {} as Record<string, any[]>);
 
       const columns = Object.keys(groupedData).reduce((acc, key) => {
         acc[key] = groupedData[key];
         return acc;
-      }, {} as Record<string, Task[]>);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      }, {} as Record<string, any[]>);
 
       const ordered = Object.keys(columns);
 
@@ -54,7 +57,9 @@ export const BoardProvider = ({ children }: PropsWithChildren) => {
   return <BoardContext.Provider value={{ boardState, dispatch }}>{children}</BoardContext.Provider>;
 };
 
-export const useBoard = () => useContext(BoardContext);
+export const useBoard = () => {
+  return React.useContext(BoardContext);
+};
 
 const boardReducer = (state: Board, action: BoardAction): Board => {
   switch (action.type) {
