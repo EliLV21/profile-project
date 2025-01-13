@@ -3,7 +3,7 @@ import { Suspense, useState } from 'react';
 import NavBar from './components/shared/nav/nav';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import HomePage from './components/pages/home/page';
+import HomePage from './components/pages/home/home';
 import BoardPage from './components/pages/board/page';
 import { UserNameContext } from './components/shared/context';
 
