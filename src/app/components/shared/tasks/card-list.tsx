@@ -41,7 +41,7 @@ export const CardList: React.FC<CardListProps> = ({
         <Card
           {...dropProvided.droppableProps}
           ref={dropProvided.innerRef}
-          className={`bg-white rounded-md shadow-md h-[75vh] w-[300px] overflow-hidden`}
+          className={`bg-white rounded-md shadow-md h-[60vh] w-[300px] overflow-hidden`}
         >
           <CardHeader className="flex flex-row justify-between items-center h-20">
             {listTitle}
@@ -62,11 +62,10 @@ type InnerListProps = {
 };
 
 const InnerList = ({ listTasks, dropProvided }: InnerListProps) => {
-  console.log(listTasks);
   return (
     <div
       ref={dropProvided.innerRef}
-      className="w-full h-[150px] grid grid-cols-1 gap-3 overflow-hidden bg-red-500 contents inline-grid "
+      className="w-full h-[150px] grid grid-cols-1 gap-3 overflow-scroll bg-red-500 contents inline-grid "
     >
       {listTasks &&
         listTasks.map((task, index) => {

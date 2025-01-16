@@ -26,10 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} h-screen antialiased container`}>
-        <div className="md:max-w-screen-xl mx-auto">
-          <BoardProvider>{children}</BoardProvider>
-        </div>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} h-screen antialiased container bg-[#a1a1aa] md:max-w-screen-xl mx-auto z-10`}
+      >
+        <BoardProvider>{children}</BoardProvider>
       </body>
     </html>
   );

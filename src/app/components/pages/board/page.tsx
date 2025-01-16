@@ -7,7 +7,6 @@ import { DragDropContext, Droppable, DropResult, DraggableLocation } from 'react
 const BoardPage: React.FC = () => {
   const boardContext = useBoard();
   if (!boardContext) {
-    console.log(boardContext);
     return <div>Error: Board context is not available</div>;
   }
   const { boardState, dispatch } = boardContext;
@@ -35,7 +34,7 @@ const BoardPage: React.FC = () => {
 
   return (
     <>
-      <div className="container p-8">
+      <div className="absolute p-8 z-10">
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="board" direction="horizontal" isDropDisabled={false} type="COLUMN">
             {provided => (
@@ -50,6 +49,7 @@ const BoardPage: React.FC = () => {
                   boardState.ordered.map((key, index) => {
                     return <Column key={key} index={index} listTitle={key} listTasks={boardState.columns[key]} />;
                   })}
+                {provided.placeholder}
               </ul>
             )}
           </Droppable>

@@ -5,21 +5,28 @@ import { NotesAccordion } from '@/types/types';
 import { useEffect, useState } from 'react';
 import { NotesModal } from './modal-accordion';
 
-export const AccordionList = () => {
+export const AccordionList: React.FC = () => {
   const [dataAccordion, setData] = useState<NotesAccordion[]>([]);
   const [showForm, setShowForm] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const getDataAccordion = async () => {
-    const { data } = await supabase.from('accordion-list').select('*');
-    if (data) {
-      setData(data);
-      console.log(data);
+    const { data, error } = await supabase.from('accordion-list').select('*');
+    if (error) {
+      console.error('Error fetching data:', error);
+    } else {
+      setData(data as NotesAccordion[]);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
     getDataAccordion();
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>

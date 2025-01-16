@@ -19,7 +19,7 @@ export type Board = {
 };
 
 export type BoardAction =
-  | { type: 'ADD_TASKS'; payload: Task }
+  | { type: 'ADD_TASKS'; payload: TaskMap }
   | { type: 'SET_TASKS'; payload: Task }
   | { type: 'REMOVE_TASK'; payload: RemoveTaskPayload }
   | { type: 'MOVE_TASK'; payload: OnDragPayload }
@@ -39,4 +39,11 @@ export type NotesAccordion = {
   id: string;
   title: string;
   description: string;
+};
+
+export type Feedback = {
+  id: string;
+  name: string;
+  email: string;
+  feedback: string;
 };

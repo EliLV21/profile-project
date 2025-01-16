@@ -24,7 +24,7 @@ import { addTaskSchema } from '@/schema';
 import { ChartCandlestick, PlusIcon } from 'lucide-react';
 import { DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import supabase from '@/supabaseClient';
-import { Task } from '@/app/types/types';
+import { Task } from '@/types/types';
 import { DialogOverlay } from '@radix-ui/react-dialog';
 
 export const TasksModal = ({
@@ -51,19 +51,19 @@ export const TasksModal = ({
   const [tag, setTag] = useState('Low');
 
   const handleSubmitForm = async ({ task, description }: z.infer<typeof addTaskSchema>) => {
-    // if (typeof window !== 'undefined') {
-    dispatch({
-      type: 'ADD_TASKS',
-      payload: {
-        id: Math.random().toString(),
-        created_at: new Date().toDateString(),
-        type_column: 'Backlog',
-        tag,
-        description,
-        task,
-      },
-    });
-    // }
+    if (typeof window !== 'undefined') {
+      dispatch({
+        type: 'ADD_TASKS',
+        payload: {
+          id: Math.random().toString(),
+          created_at: new Date().toDateString(),
+          type_column: 'Backlog',
+          tag,
+          description,
+          task,
+        },
+      });
+    }
     setShowForm(!showForm);
     let tagTask;
     switch (tag) {
