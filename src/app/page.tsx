@@ -18,7 +18,7 @@ export default function Home() {
   const queryClient = new QueryClient();
   const { name } = useUserContext();
 
-  const isProd = process.env.NODE_ENV === 'production' && process.env.DEPLOY_ENV === 'github-pages';
+  const isProd = process.env.NODE_ENV === 'production' || process.env.DEPLOY_ENV === 'github-pages';
 
   const [defectValue, setDefectValue] = useState<DefectValue>({
     name: '',
@@ -51,7 +51,7 @@ export default function Home() {
             </div>
             <Suspense fallback={<div>Loading...</div>}>
               <Routes>
-                <Route path="/" element={<HomePage />} />
+                <Route path={`${isProd ? '/profile-project' : '/'}`} element={<HomePage />} />
                 <Route path="/board" element={<BoardPage />} />
                 {/* <Route path="/carousel" element={<CarouselPage />} />*/}
                 <Route path="/notes" element={<NotesPage />} />
