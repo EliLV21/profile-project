@@ -22,6 +22,7 @@ export default function Home() {
 
   console.log('isProd', isProd, process.env);
 
+
   const [defectValue, setDefectValue] = useState<DefectValue>({
     name: '',
     setName: (name: string) => {
