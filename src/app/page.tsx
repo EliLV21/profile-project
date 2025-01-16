@@ -18,7 +18,8 @@ export default function Home() {
   const queryClient = new QueryClient();
   const { name } = useUserContext();
 
-  const isProd = process.env.NODE_ENV === 'production' || process.env.DEPLOY_ENV === 'github-pages';
+  const isProd = process.env.NODE_ENV === 'production';
+  console.log('isProd', isProd, process.env.NODE_ENV);
 
   const [defectValue, setDefectValue] = useState<DefectValue>({
     name: '',
