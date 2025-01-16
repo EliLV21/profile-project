@@ -1,52 +1,32 @@
 import Image from 'next/image';
-import { useUserContext } from '../../shared/context';
 import Marquee from '@/components/ui/marquee';
+import { Label } from '@/components/ui/label';
 
 const HomePage: React.FC = () => {
   const logos = [
     {
-      name: 'Microsoft',
-      img: 'https://picsum.photos/id/1/200/300',
+      name: 'BigCommerce',
+      img: 'https://rfdslcnqutnamgrgitxv.supabase.co/storage/v1/object/sign/profile%20resume/projects/bigcommerce.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9maWxlIHJlc3VtZS9wcm9qZWN0cy9iaWdjb21tZXJjZS5zdmciLCJpYXQiOjE3MzY4OTEwNTgsImV4cCI6MTc2ODQyNzA1OH0.IEd_GmcxssSDTBbPAZt_Xg-h6i6LGbHbMucdJwAEbKI&t=2025-01-14T21%3A44%3A18.710Z',
     },
     {
-      name: 'Apple',
-      img: 'https://picsum.photos/id/2/200/300',
+      name: 'Orion180',
+      img: 'https://rfdslcnqutnamgrgitxv.supabase.co/storage/v1/object/sign/profile%20resume/projects/orion180.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9maWxlIHJlc3VtZS9wcm9qZWN0cy9vcmlvbjE4MC5qcGciLCJpYXQiOjE3MzY4OTExNjIsImV4cCI6MTc2ODQyNzE2Mn0.PqJ_E9rlY0yCdhWHYclDtC79nAyRoNMNG8QlNP0BqvQ&t=2025-01-14T21%3A46%3A02.911Z',
     },
     {
-      name: 'Google',
-      img: 'https://picsum.photos/id/3/200/300',
+      name: 'ESO',
+      img: 'https://rfdslcnqutnamgrgitxv.supabase.co/storage/v1/object/sign/profile%20resume/projects/ESO.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9maWxlIHJlc3VtZS9wcm9qZWN0cy9FU08ucG5nIiwiaWF0IjoxNzM2ODkxMTk1LCJleHAiOjE3Njg0MjcxOTV9.08jhLvrvvxpoHpfD4JHKp6ZWXhDc6n-Yi3HefSd3Arc&t=2025-01-14T21%3A46%3A36.089Z',
     },
     {
-      name: 'Facebook',
-      img: 'https://picsum.photos/id/4/200/300',
-    },
-    {
-      name: 'LinkedIn',
-      img: 'https://picsum.photos/id/5/200/300',
-    },
-    {
-      name: 'Twitter',
-      img: 'https://picsum.photos/id/6/200/300',
+      name: 'Expedia group',
+      img: 'https://rfdslcnqutnamgrgitxv.supabase.co/storage/v1/object/sign/profile%20resume/projects/expedia.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9maWxlIHJlc3VtZS9wcm9qZWN0cy9leHBlZGlhLnBuZyIsImlhdCI6MTczNjg5MTI0MywiZXhwIjoxNzY4NDI3MjQzfQ.VV-jzbSbQ30Sg2qi0Fad-3DzmkoNUwKsdgwmHOU3_j4&t=2025-01-14T21%3A47%3A23.224Z',
     },
   ];
 
-  const { name } = useUserContext();
-
   return (
     <>
-      <div className="container p-8 relative flex items-center justify-center gap-4 overflow-hidden rounded-lg border bg-background px-20 md:shadow-xl">
-        <div className="w-full h-[100px]">
-          {name ? (
-            <div>
-              <h1 className="text-4xl text-center text-primary-500">Welcome</h1>
-              <p>Hello, {name}</p>
-            </div>
-          ) : (
-            <p>Please log in</p>
-          )}
-        </div>
-        <div className="grid grid-cols-4 p-[2rem]">
-          <div className="col-span-2 flex flex-row gap-4 [perspective:400px]">
+      <div className="container p-8 z-10 absolute items-center justify-center bg-opacity-60 gap-4 overflow-hidden rounded-lg border bg-background px-20 md:shadow-xl">
+        <div className="grid grid-cols-6 p-[2rem]">
+          <div>
             <Marquee
               className="h-96 justify-center overflow-hidden [--duration:60s] [--gap:1rem]"
               vertical
@@ -67,12 +47,43 @@ const HomePage: React.FC = () => {
               ))}
             </Marquee>
           </div>
-          <div className="col-span-2 flex items-center text-center">
-            <p>
-              Front end developer with 6 years of experience, working mainly with Javascript. Using Angularjs, Vuejs and
-              React. With a strong experience in agile methodology, as well as the ability to translate business
-              requirements into technical tasks.
-            </p>
+          <div className="col-span-5 flex justify-end items-center">
+            <div className="grid p-10">
+              <p>
+                Front end developer with 6 years of experience, working mainly with Javascript. Using Angularjs, Vuejs
+                and React. With a strong experience in agile methodology, as well as the ability to translate business
+                requirements into technical tasks.
+              </p>
+            </div>
+            <div id="project-works">
+              <ul className="flex flex-row">
+                <li>
+                  <Image
+                    src="https://rfdslcnqutnamgrgitxv.supabase.co/storage/v1/object/sign/profile%20resume/logo/react.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9maWxlIHJlc3VtZS9sb2dvL3JlYWN0LnN2ZyIsImlhdCI6MTczNjg5MjA3MywiZXhwIjoxNzY4NDI4MDczfQ.--CSKhwVqVV4_po-JBX97EM7-50idVeKujdnbTdyEGk&t=2025-01-14T22%3A01%3A13.678Z"
+                    alt="React"
+                    width={330}
+                    height={200}
+                  />
+                </li>
+                <li>
+                  <Image
+                    src="https://rfdslcnqutnamgrgitxv.supabase.co/storage/v1/object/sign/profile%20resume/logo/shadcn-ui.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9maWxlIHJlc3VtZS9sb2dvL3NoYWRjbi11aS5zdmciLCJpYXQiOjE3MzY4OTcxOTIsImV4cCI6MTc2ODQzMzE5Mn0.t0hiwVxgvQjhnshJj_00oYqrp3QfkP3aVc0j2kl4eS0&t=2025-01-14T23%3A26%3A32.260Z"
+                    alt="Shacdn/UI"
+                    width={100}
+                    height={100}
+                  />
+                  <Label>shacdn/ui</Label>
+                </li>
+                <li>
+                  <Image
+                    src="https://rfdslcnqutnamgrgitxv.supabase.co/storage/v1/object/sign/profile%20resume/logo/magic-ui.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9maWxlIHJlc3VtZS9sb2dvL21hZ2ljLXVpLnBuZyIsImlhdCI6MTczNjg5NzM3MCwiZXhwIjoxNzY4NDMzMzcwfQ.9vZmQbQNBN5fKjqwU5KEC-7AO0yj2rml5GuCylLmqlg&t=2025-01-14T23%3A29%3A30.480Z"
+                    alt="Magic UI"
+                    width={280}
+                    height={200}
+                  />
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

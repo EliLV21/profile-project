@@ -42,12 +42,11 @@ export const NotesModal = ({
   const handleSubmitForm = async ({ title, description }: z.infer<typeof addNotesSchema>) => {
     setShowForm(!showForm);
 
-    const { data, error } = await supabase.from('accordion-list').insert([{ title, description }]);
+    const { data } = await supabase.from('accordion-list').insert([{ title, description }]);
 
     if (data) {
       setNotes([...notes, ...data]);
     }
-    console.log(notes, error);
   };
 
   return (

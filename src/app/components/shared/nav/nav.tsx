@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
+import { ContactMe } from '../contact/contact';
+import { useState } from 'react';
 
 const NavBar = () => {
+  const [showForm, setShowForm] = useState(false);
+
   return (
-    <div className="grid grid-cols-4 w-full h-[4rem] flex justify-content items-center">
+    <div className="grid grid-cols-6 w-full h-[4rem] flex justify-content items-center border-b-8 border-[#451a03] z-10">
       <nav className="col-span-3 inline-block">
         <ul className="nav flex flex-row">
           <li className="nav-item">
@@ -27,7 +31,14 @@ const NavBar = () => {
           </li>
         </ul>
       </nav>
-      <div className="flex justify-center items-center">{/* <Login /> */}</div>
+      <div className="col-span-2 flex justify-center items-center">
+        <Link to="https://github.com/EliLV21/profile-project" className="btn btn-primary hover:underline">
+          https://github.com/EliLV21/profile-project
+        </Link>
+      </div>
+      <div className="flex justify-end items-center">
+        <ContactMe setShowForm={setShowForm} showForm={showForm} />
+      </div>
     </div>
   );
 };
