@@ -19,7 +19,6 @@ export default function Home() {
   const { name } = useUserContext();
 
   const isProd = process.env.NODE_ENV === 'production' && process.env.DEPLOY_ENV === 'github-pages';
-  console.log('isProd', isProd, process.env.NODE_ENV);
 
   const [defectValue, setDefectValue] = useState<DefectValue>({
     name: '',
