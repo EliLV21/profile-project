@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback } from 'react';
+import React, { use, useCallback, useEffect } from 'react';
 import { useBoard } from '@/context/board-context/BoardContext';
 import { Column } from '../../shared/column/column';
 import { DragDropContext, Droppable, DropResult, DraggableLocation } from 'react-beautiful-dnd'; // Import the necessary types
@@ -31,6 +31,10 @@ const BoardPage: React.FC = () => {
     },
     [dispatch]
   );
+
+  useEffect(() => {
+    console.log('boardState', boardState);
+  }, [boardState]);
 
   return (
     <>

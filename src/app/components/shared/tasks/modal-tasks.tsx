@@ -17,7 +17,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { cn } from '@/lib/utils';
 import { Textarea } from '@/components/ui/textarea';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
 import { z } from 'zod';
 import { addTaskSchema } from '@/schema';
@@ -174,7 +174,9 @@ export const TasksModal = ({
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button type="submit">Submit</Button>
+                  <DialogClose asChild>
+                    <Button type="submit">Submit</Button>
+                  </DialogClose>
                 </CardFooter>
               </Card>
             </form>
