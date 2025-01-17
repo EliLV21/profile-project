@@ -1,11 +1,11 @@
-import { AccordionList } from '../../shared/accordion/accordion-list';
+import { EmailForm } from '../../shared/email/email-form';
 
 const EmailPage: React.FC = () => {
   return (
     <>
       <div className="container grid grid-cols-2 p-8 z-10 absolute">
         <div>
-          <h1>HOLA MUNDO</h1>
+          <EmailForm />
         </div>
         <div>
           <h1>HOLA MUNDO 2</h1>
