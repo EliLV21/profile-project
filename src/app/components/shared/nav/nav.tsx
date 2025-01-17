@@ -5,12 +5,14 @@ import { useState } from 'react';
 const NavBar = () => {
   const [showForm, setShowForm] = useState(false);
 
+  const isProd = process.env.NODE_ENV === 'production';
+
   return (
     <div className="grid grid-cols-6 w-full h-[4rem] flex justify-content items-center border-b-8 border-[#451a03] z-10">
       <nav className="col-span-3 inline-block">
         <ul className="nav flex flex-row">
           <li className="nav-item">
-            <Link className="nav-link" to="/">
+            <Link className="nav-link" to={`${isProd ? '/profile-project' : '/'}`}>
               Home
             </Link>
           </li>
@@ -19,14 +21,14 @@ const NavBar = () => {
               Board
             </Link>
           </li>
-          {/* <li className="nav-item ml-[1.25rem]">
-            <Link className="nav-link" to="/carousel">
-              Carousel
-            </Link>
-  </li>*/}
           <li className="nav-item ml-[1.25rem]">
             <Link className="nav-link" to="/notes">
               Notes
+            </Link>
+          </li>
+          <li className="nav-item ml-[1.25rem]">
+            <Link className="nav-link" to="/email">
+              Email
             </Link>
           </li>
         </ul>

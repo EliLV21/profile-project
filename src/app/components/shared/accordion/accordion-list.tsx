@@ -22,7 +22,7 @@ export const AccordionList: React.FC = () => {
 
   useEffect(() => {
     getDataAccordion();
-  }, []);
+  }, [dataAccordion]);
 
   if (loading) {
     return <div>Loading...</div>;

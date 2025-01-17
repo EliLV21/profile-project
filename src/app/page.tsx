@@ -8,6 +8,7 @@ import BoardPage from './components/pages/board/page';
 import { UserNameContext, useUserContext } from './components/shared/context';
 import NotesPage from './components/pages/notes/page';
 import ParticlesView from './components/shared/particles/particles';
+import EmailPage from './components/pages/email/page';
 
 export interface DefectValue {
   name: string;
@@ -19,7 +20,6 @@ export default function Home() {
   const { name } = useUserContext();
 
   const isProd = process.env.NODE_ENV === 'production';
-  console.log('isProd', isProd, process.env.NODE_ENV);
 
   const [defectValue, setDefectValue] = useState<DefectValue>({
     name: '',
@@ -55,8 +55,8 @@ export default function Home() {
               <Routes>
                 <Route path={`${isProd ? '/profile-project' : '/'}`} element={<HomePage />} />
                 <Route path="/board" element={<BoardPage />} />
-                {/* <Route path="/carousel" element={<CarouselPage />} />*/}
                 <Route path="/notes" element={<NotesPage />} />
+                <Route path="/email" element={<EmailPage />} />
               </Routes>
             </Suspense>
           </Router>
