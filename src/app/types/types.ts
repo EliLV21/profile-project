@@ -40,3 +40,10 @@ export type NotesAccordion = {
   title: string;
   description: string;
 };
+
+export type Feedback = {
+  id: string;
+  name: string;
+  email: string;
+  feedback: string;
+};

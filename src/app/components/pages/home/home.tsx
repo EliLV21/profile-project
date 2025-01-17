@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
     <>
       <div className="container p-8 z-10 absolute items-center justify-center bg-opacity-60 gap-4 overflow-hidden rounded-lg border bg-background px-20 md:shadow-xl">
         <div className="grid grid-cols-6 p-[2rem]">
-          <div>
+          <div className="">
             <Marquee
               className="h-96 justify-center overflow-hidden [--duration:60s] [--gap:1rem]"
               vertical
@@ -47,42 +47,63 @@ const HomePage: React.FC = () => {
               ))}
             </Marquee>
           </div>
-          <div className="col-span-5 flex justify-end items-center">
-            <div className="grid p-10">
-              <p>
-                Front end developer with 6 years of experience, working mainly with Javascript. Using Angularjs, Vuejs
-                and React. With a strong experience in agile methodology, as well as the ability to translate business
-                requirements into technical tasks.
-              </p>
-            </div>
-            <div id="project-works">
-              <ul className="flex flex-row">
-                <li>
+          <div className="col-span-4 col-start-3 flex justify-end items-center">
+            <div className="grid grid-rows-2">
+              <div className="p-10">
+                <p>
+                  Front end developer with 6 years of experience, working mainly with Javascript. Using Angularjs, Vuejs
+                  and React. With a strong experience in agile methodology, as well as the ability to translate business
+                  requirements into technical tasks.
+                </p>
+              </div>
+              <div className="grid grid-cols-3">
+                <div className="flex justify-center items-center">
                   <Image
+                    className="h-[50px] w-auto ml-2"
                     src="https://rfdslcnqutnamgrgitxv.supabase.co/storage/v1/object/sign/profile%20resume/logo/react.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9maWxlIHJlc3VtZS9sb2dvL3JlYWN0LnN2ZyIsImlhdCI6MTczNjg5MjA3MywiZXhwIjoxNzY4NDI4MDczfQ.--CSKhwVqVV4_po-JBX97EM7-50idVeKujdnbTdyEGk&t=2025-01-14T22%3A01%3A13.678Z"
                     alt="React"
                     width={330}
-                    height={200}
+                    height={150}
                   />
-                </li>
-                <li>
+                </div>
+                <div className="flex justify-center items-center">
                   <Image
+                    className="h-[50px] w-auto ml-2"
                     src="https://rfdslcnqutnamgrgitxv.supabase.co/storage/v1/object/sign/profile%20resume/logo/shadcn-ui.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9maWxlIHJlc3VtZS9sb2dvL3NoYWRjbi11aS5zdmciLCJpYXQiOjE3MzY4OTcxOTIsImV4cCI6MTc2ODQzMzE5Mn0.t0hiwVxgvQjhnshJj_00oYqrp3QfkP3aVc0j2kl4eS0&t=2025-01-14T23%3A26%3A32.260Z"
                     alt="Shacdn/UI"
                     width={100}
                     height={100}
                   />
                   <Label>shacdn/ui</Label>
-                </li>
-                <li>
+                </div>
+                <div className="flex justify-center items-center">
                   <Image
+                    className="h-[50px] w-auto ml-2"
                     src="https://rfdslcnqutnamgrgitxv.supabase.co/storage/v1/object/sign/profile%20resume/logo/magic-ui.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9maWxlIHJlc3VtZS9sb2dvL21hZ2ljLXVpLnBuZyIsImlhdCI6MTczNjg5NzM3MCwiZXhwIjoxNzY4NDMzMzcwfQ.9vZmQbQNBN5fKjqwU5KEC-7AO0yj2rml5GuCylLmqlg&t=2025-01-14T23%3A29%3A30.480Z"
                     alt="Magic UI"
                     width={280}
-                    height={200}
+                    height={150}
                   />
-                </li>
-              </ul>
+                </div>
+                <div className="flex justify-center items-center">
+                  <Image
+                    className="h-[40px] w-auto ml-2"
+                    src="https://rfdslcnqutnamgrgitxv.supabase.co/storage/v1/object/sign/profile%20resume/logo/supabase.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9maWxlIHJlc3VtZS9sb2dvL3N1cGFiYXNlLnBuZyIsImlhdCI6MTczNzA3MDQ4OSwiZXhwIjoxNzY4NjA2NDg5fQ.oIu1o5dWhPu_bJeH6DLmoouiAkq5rxRq1ee7_kXHmco&t=2025-01-16T23%3A34%3A49.556Z"
+                    alt="Supabase"
+                    height={150}
+                    width={300}
+                  />
+                </div>
+                <div className="flex justify-center items-center">
+                  <Image
+                    className="h-[30px] w-auto ml-2"
+                    src="https://rfdslcnqutnamgrgitxv.supabase.co/storage/v1/object/sign/profile%20resume/logo/tailwind.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJwcm9maWxlIHJlc3VtZS9sb2dvL3RhaWx3aW5kLnBuZyIsImlhdCI6MTczNzA3Mjk0MywiZXhwIjoxNzY4NjA4OTQzfQ.v8nVtO0zE0cuKegpoRlGCRIC_T5eQoWP7W2tSMcfPcA&t=2025-01-17T00%3A15%3A43.124Z"
+                    alt="Tailwind"
+                    height={150}
+                    width={300}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>

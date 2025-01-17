@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogFooter,
   DialogHeader,
@@ -14,7 +15,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { addFeedbackSchema } from '@/schema';
 import supabase from '@/supabaseClient';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Dispatch } from 'react';
+import { Dispatch, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -25,15 +26,6 @@ export const ContactMe = ({
   setShowForm: Dispatch<React.SetStateAction<boolean>>;
   showForm: boolean;
 }) => {
-  const handleSubmitForm = async ({ name, email, feedback }: z.infer<typeof addFeedbackSchema>) => {
-    setShowForm(!showForm);
-    const { data, error } = await supabase.from('contact').insert([{ name, email, feedback }]);
-    console.log(error);
-    if (data) {
-      console.log('Feedback sent!');
-    }
-  };
-
   const form = useForm<z.infer<typeof addFeedbackSchema>>({
     resolver: zodResolver(addFeedbackSchema),
     defaultValues: {
@@ -42,6 +34,26 @@ export const ContactMe = ({
       feedback: '',
     },
   });
+
+  const {
+    reset,
+    formState: { isSubmitSuccessful },
+  } = form;
+
+  const handleSubmitForm = async ({ name, email, feedback }: z.infer<typeof addFeedbackSchema>) => {
+    setShowForm(!showForm);
+    const { data } = await supabase.from('contact').insert([{ name, email, feedback }]);
+
+    if (data) {
+      console.log('Feedback sent!');
+    }
+  };
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
 
   return (
     <Dialog>
@@ -103,7 +115,9 @@ export const ContactMe = ({
               </div>
             </div>
             <DialogFooter>
-              <Button type="submit">Send</Button>
+              <DialogClose asChild>
+                <Button type="submit">Send</Button>
+              </DialogClose>
             </DialogFooter>
           </form>
         </Form>

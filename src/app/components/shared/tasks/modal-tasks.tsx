@@ -79,14 +79,13 @@ export const TasksModal = ({
       default:
         tagTask = 1;
     }
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from('demo-app')
       .insert([{ task, description_task: description, tag_task: tagTask }]);
 
     if (data) {
       setTasks([...tasks, ...data]);
     }
-    console.log(tasks, error);
   };
 
   return (

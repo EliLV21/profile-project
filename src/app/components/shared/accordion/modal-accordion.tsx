@@ -14,7 +14,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { z } from 'zod';
 import { addNotesSchema } from '@/schema';
 import supabase from '@/supabaseClient';
-import { DialogOverlay } from '@radix-ui/react-dialog';
+import { DialogClose, DialogOverlay } from '@radix-ui/react-dialog';
 import { NotesAccordion } from '@/types/types';
 import { PlusIcon } from 'lucide-react';
 
@@ -102,7 +102,9 @@ export const NotesModal = ({
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button type="submit">Submit</Button>
+                  <DialogClose asChild>
+                    <Button type="submit">Submit</Button>
+                  </DialogClose>
                 </CardFooter>
               </Card>
             </form>
