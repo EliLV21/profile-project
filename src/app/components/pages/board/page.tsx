@@ -6,10 +6,7 @@ import { DragDropContext, Droppable, DropResult, DraggableLocation } from 'react
 
 const BoardPage: React.FC = () => {
   const boardContext = useBoard();
-  if (!boardContext) {
-    return <div>Error: Board context is not available</div>;
-  }
-  const { boardState, dispatch } = boardContext;
+  const { boardState, dispatch } = boardContext || {};
 
   useEffect(() => {
     if (boardState) {
@@ -17,14 +14,9 @@ const BoardPage: React.FC = () => {
     }
   }, [boardState]);
 
-  if (!boardContext) {
-    return <div>Error: Board context is not available</div>;
-  }
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const onDragEnd = useCallback(
     (result: DropResult) => {
-      if (!result.destination) {
+      if (!result.destination || !dispatch) {
         return;
       }
       const source: DraggableLocation = result.source;
@@ -42,9 +34,13 @@ const BoardPage: React.FC = () => {
     [dispatch]
   );
 
-  useEffect(() => {
-    console.log('boardState', boardState);
-  }, [boardState]);
+  if (!boardContext) {
+    return <div>Error: Board context is not available</div>;
+  }
+
+  if (!boardState) {
+    return <div>Error: Board state is not available</div>;
+  }
 
   return (
     <>

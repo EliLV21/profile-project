@@ -1,18 +1,19 @@
+'use client';
 import { ChangeEvent, MouseEvent, useState } from 'react';
 import { BtnCalculator } from './btn-calculator';
-import { set } from 'zod';
+// import { set } from 'zod';
 
 export const Calculator = () => {
   const [result, setResult] = useState('');
   const [prevValue, setPrevValue] = useState('');
-  const [typeDigit, setTypeDigit] = useState(false);
-  const [nextValue, setNextValue] = useState(0);
+  // const [typeDigit, setTypeDigit] = useState(false);
+  // const [nextValue, setNextValue] = useState(0);
 
-  let [calc, setCalc] = useState({
-    sign: '',
-    num: 0,
-    res: 0,
-  });
+  // let [calc, setCalc] = useState({
+  //   sign: '',
+  //   num: 0,
+  //   res: 0,
+  // });
 
   const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 'AC'];
   const symbols = ['+', '-', '*', '/', '()', '+/-', '%', '='];

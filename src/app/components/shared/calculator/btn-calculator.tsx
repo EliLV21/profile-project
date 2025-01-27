@@ -1,16 +1,12 @@
 import {
-  Asterisk,
   AsteriskIcon,
-  CircleX,
   CircleXIcon,
   DeleteIcon,
   DiffIcon,
-  Divide,
   DivideIcon,
   EqualIcon,
   MinusIcon,
   ParenthesesIcon,
-  Percent,
   PercentIcon,
   PlusIcon,
 } from 'lucide-react';
