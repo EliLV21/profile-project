@@ -42,6 +42,10 @@ const BoardPage: React.FC = () => {
     [dispatch]
   );
 
+  useEffect(() => {
+    console.log('boardState', boardState);
+  }, [boardState]);
+
   return (
     <>
       <div className="absolute p-8 z-10">

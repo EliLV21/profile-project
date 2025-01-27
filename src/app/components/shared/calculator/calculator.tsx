@@ -8,6 +8,12 @@ export const Calculator = () => {
   const [typeDigit, setTypeDigit] = useState(false);
   const [nextValue, setNextValue] = useState(0);
 
+  let [calc, setCalc] = useState({
+    sign: '',
+    num: 0,
+    res: 0,
+  });
+
   const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 'AC'];
   const symbols = ['+', '-', '*', '/', '()', '+/-', '%', '='];
 
