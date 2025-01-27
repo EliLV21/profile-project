@@ -8,7 +8,7 @@ import BoardPage from './components/pages/board/page';
 import { UserNameContext, useUserContext } from './components/shared/context';
 import NotesPage from './components/pages/notes/page';
 import ParticlesView from './components/shared/particles/particles';
-import EmailPage from './components/pages/email/page';
+import CalculatorPage from './components/pages/calculator/page';
 
 export interface DefectValue {
   name: string;
@@ -36,7 +36,6 @@ export default function Home() {
   return (
     <div className="container relative grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <ParticlesView />
-
       <QueryClientProvider client={queryClient}>
         <UserNameContext.Provider value={defectValue}>
           <Router future={{ v7_startTransition: true }}>
@@ -56,7 +55,7 @@ export default function Home() {
                 <Route path={`${isProd ? '/profile-project' : '/'}`} element={<HomePage />} />
                 <Route path="/board" element={<BoardPage />} />
                 <Route path="/notes" element={<NotesPage />} />
-                <Route path="/email" element={<EmailPage />} />
+                <Route path="/calculator" element={<CalculatorPage />} />
               </Routes>
             </Suspense>
           </Router>
