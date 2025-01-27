@@ -1,5 +1,5 @@
 'use client';
-import React, { use, useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useBoard } from '@/context/board-context/BoardContext';
 import { Column } from '../../shared/column/column';
 import { DragDropContext, Droppable, DropResult, DraggableLocation } from 'react-beautiful-dnd'; // Import the necessary types
@@ -10,6 +10,16 @@ const BoardPage: React.FC = () => {
     return <div>Error: Board context is not available</div>;
   }
   const { boardState, dispatch } = boardContext;
+
+  useEffect(() => {
+    if (boardState) {
+      console.log('boardState', boardState);
+    }
+  }, [boardState]);
+
+  if (!boardContext) {
+    return <div>Error: Board context is not available</div>;
+  }
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const onDragEnd = useCallback(

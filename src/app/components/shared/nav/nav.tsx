@@ -27,8 +27,8 @@ const NavBar = () => {
             </Link>
           </li>
           <li className="nav-item ml-[1.25rem]">
-            <Link className="nav-link" to="/email">
-              Email
+            <Link className="nav-link" to="/calculator">
+              Calculator
             </Link>
           </li>
         </ul>
